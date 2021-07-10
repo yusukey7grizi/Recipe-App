@@ -4,6 +4,7 @@ import { AppThunk, RootState } from "./store";
 interface ReduxType {
   idCounter: number;
   Recipe: {
+    categoryid: number;
     id: number;
     imageUrl: string;
     title: string;
@@ -30,6 +31,7 @@ const RecipeSlice = createSlice({
         ingredients: action.payload.ingredients,
         imageUrl: action.payload.imageUrl,
         favourited: false,
+        categoryid: action.payload.categoryid,
       });
     },
     RemoveRecipe: (state, action) => {

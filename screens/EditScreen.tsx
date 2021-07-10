@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { EditRecipe } from "../redux/RecipeSlice";
 import { RecipeType } from "../type/type";
 
-const EditScreen = (props: RecipeType) => {
+const EditScreen: React.FC<RecipeType> = (props) => {
   const Recipe = props.navigation.getParam("Recipe");
   const { title, imageUrl, ingredients, recipe } = Recipe;
   const dispatch = useDispatch();

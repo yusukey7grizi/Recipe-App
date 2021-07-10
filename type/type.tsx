@@ -15,3 +15,10 @@ export type FormProps = {
   initialValues: Values;
   SubmitHandler: (values: Values, { resetForm }: { resetForm: any }) => void;
 };
+
+export type ItemProp = {
+  favourited: boolean;
+  title: string;
+  imageUrl: string;
+  onSelect: () => void;
+};

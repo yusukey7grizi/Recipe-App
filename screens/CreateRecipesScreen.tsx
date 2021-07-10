@@ -5,10 +5,15 @@ import { Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { AddRecipe } from "../redux/RecipeSlice";
 import { RecipeType } from "../type/type";
+import Select from "react-select";
 
-const CreateRecipesScreen = (props: RecipeType) => {
+const CreateRecipesScreen: React.FC<RecipeType> = (props) => {
   const dispatch = useDispatch();
-
+  const options = [
+    { value: "Italian", label: "Chocolate" },
+    { value: "Korean", label: "Strawberry" },
+    { value: "Japanese", label: "Vanilla" },
+  ];
   const [Error, setError] = useState(false);
   type Values = {
     imageUrl: string;

@@ -1,18 +1,16 @@
 import React from "react";
-
 import { Entypo, AntDesign, FontAwesome } from "@expo/vector-icons";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
-
 import FavScreen from "../screens/FavScreen";
-
 import HomeScreen from "../screens/HomeScreen";
 import { Platform } from "react-native";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import CreateRecipesScreen from "../screens/CreateRecipesScreen";
 import ItemDetails from "../screens/ItemDetails";
 import EditScreen from "../screens/EditScreen";
+import SearchScreen from "../screens/SearchScreen";
 
 const HomeScreenNavigator = createStackNavigator({
   Home: HomeScreen,
@@ -22,6 +20,11 @@ const HomeScreenNavigator = createStackNavigator({
 
 const CreateScreenNavigator = createStackNavigator({
   Create: CreateRecipesScreen,
+});
+const SearchNavigator = createStackNavigator({
+  Search: { screen: SearchScreen, navigationOptions: { headerShown: false } },
+  SearchItemDetails: ItemDetails,
+  Edit: EditScreen,
 });
 
 const FavScreenNavigator = createStackNavigator({
@@ -47,6 +50,15 @@ const TabScreenConfig = {
       },
     },
   },
+  Search: {
+    screen: SearchNavigator,
+    navigationOptions: {
+      tabBarIcon: (props: any) => {
+        return <FontAwesome name="search" size={24} color={props.tintColor} />;
+      },
+    },
+  },
+
   Favourites: {
     screen: FavScreenNavigator,
     navigationOptions: {
